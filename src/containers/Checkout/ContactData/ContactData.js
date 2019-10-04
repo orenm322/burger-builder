@@ -64,6 +64,9 @@ class ContactData extends Component {
                     placeholder: 'Your E-Mail'
                 },
                 value: '',
+                validation: {
+                    required: true
+                },
                 valid: false
             },
             deliveryMethod: {
@@ -74,7 +77,9 @@ class ContactData extends Component {
                         {value: 'cheapest', displayValue: 'Cheapest'}
                     ]
                 },
-                value: ''
+                value: '',
+                validation: {},
+                valid: true
             }
         },  
         loading: false
@@ -153,7 +158,9 @@ class ContactData extends Component {
                     key={formElement.id}
                     elementType={formElement.config.elementType}
                     elementConfig={formElement.config.elementConfig}
-                    value={formElement.config.value} 
+                    value={formElement.config.value}
+                    invalid={!formElement.config.valid} 
+                    shouldValidate={formElement.config.validation}
                     changed={(event) => this.inputChangedHandler(event, formElement.id)} />
             ))}
             <Button btnType="Success">ORDER</Button>
