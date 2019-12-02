@@ -6,6 +6,7 @@ const order = (props) => {
     
     const ingredients = [];
 
+    // eslint-disable-next-line
     for(let ingredientName in props.ingredients) {
         ingredients.push(
             {
